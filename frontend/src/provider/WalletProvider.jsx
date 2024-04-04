@@ -1,4 +1,8 @@
-import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
+import {
+  createWeb3Modal,
+  defaultConfig,
+  useWeb3ModalTheme,
+} from "@web3modal/ethers/react";
 
 export const SEPOLIA_CHAIN_ID = 11155111;
 
@@ -24,7 +28,7 @@ const metadata = {
 
 // Check if projectId is defined before passing it to createWeb3Modal
 if (projectId) {
-  createWeb3Modal({
+  const web3Modal = createWeb3Modal({
     ethersConfig: defaultConfig({ metadata }),
     chains: [sepolia],
     projectId,
@@ -35,6 +39,10 @@ if (projectId) {
   console.error("Project ID is not defined.");
 }
 
+// Now you can use the web3Modal instance to handle web3 modal related functionality
+// For example, you can use useWeb3ModalTheme hook
 export function Web3Modal({ children }) {
+  const theme = useWeb3ModalTheme();
+  // You can use the theme object here
   return children;
 }

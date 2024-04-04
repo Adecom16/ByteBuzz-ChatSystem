@@ -34,11 +34,6 @@ contract ChatApp {
     event SentMessage(address indexed, address indexed, uint);
 
 
-        // 0x6562756b697a7931000000000000000000000000000000000000000000000000
-        // 0x6562756b697a7931320000000000000000000000000000000000000000000000
- 
-
-
     function sendMessage(bytes32  _receiver, string memory _message) external{
         address _receiverAddr = ensServices.getAddressByUsername(_receiver);
         
@@ -72,9 +67,4 @@ contract ChatApp {
     function getAddressByUsername(bytes32  _username) external view returns(address){
         return ensServices.getAddressByUsername(_username);
     }
-
- 
-
-
-    
 }
