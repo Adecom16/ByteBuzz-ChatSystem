@@ -8,12 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-.env
+# .env
 package-lock.json
 dist
 dist-ssr
 *.local
-txt.txt
+# txt.txt
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
