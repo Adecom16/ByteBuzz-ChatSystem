@@ -7,7 +7,9 @@ import {
 export const SEPOLIA_CHAIN_ID = 11155111;
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID || "";
+const projectId =
+  import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID ||
+  "3df925a72247586b5a48b560c072f31c";
 
 // 2. Set chains
 const sepolia = {
