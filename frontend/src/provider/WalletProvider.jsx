@@ -17,7 +17,9 @@ const sepolia = {
   name: "Sepolia Testnet",
   currency: "ETH",
   explorerUrl: "https://sepolia.infura.io/v3/",
-  rpcUrl: `https://sepolia.infura.io/v3/${import.meta.env.VITE_INFURA_ID}`,
+  rpcUrl: `https://sepolia.infura.io/v3/${
+    import.meta.env.VITE_INFURA_ID || "34df99fbbd624cdb80e4e8b6cc29f4d6"
+  }`,
 };
 
 // 3. Create a metadata object
