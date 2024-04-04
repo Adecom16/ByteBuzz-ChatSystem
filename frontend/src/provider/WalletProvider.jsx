@@ -1,15 +1,9 @@
-import {
-  createWeb3Modal,
-  defaultConfig,
-  useWeb3ModalTheme,
-} from "@web3modal/ethers/react";
+import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
 
 export const SEPOLIA_CHAIN_ID = 11155111;
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId =
-  import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID ||
-  "3df925a72247586b5a48b560c072f31c";
+const projectId = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID || "";
 
 // 2. Set chains
 const sepolia = {
@@ -17,9 +11,7 @@ const sepolia = {
   name: "Sepolia Testnet",
   currency: "ETH",
   explorerUrl: "https://sepolia.infura.io/v3/",
-  rpcUrl: `https://sepolia.infura.io/v3/${
-    import.meta.env.VITE_INFURA_ID || "34df99fbbd624cdb80e4e8b6cc29f4d6"
-  }`,
+  rpcUrl: `https://sepolia.infura.io/v3/${import.meta.env.VITE_INFURA_ID}`,
 };
 
 // 3. Create a metadata object
@@ -32,7 +24,7 @@ const metadata = {
 
 // Check if projectId is defined before passing it to createWeb3Modal
 if (projectId) {
-  const web3Modal = createWeb3Modal({
+  createWeb3Modal({
     ethersConfig: defaultConfig({ metadata }),
     chains: [sepolia],
     projectId,
@@ -43,10 +35,6 @@ if (projectId) {
   console.error("Project ID is not defined.");
 }
 
-// Now you can use the web3Modal instance to handle web3 modal related functionality
-// For example, you can use useWeb3ModalTheme hook
 export function Web3Modal({ children }) {
-  const theme = useWeb3ModalTheme();
-  // You can use the theme object here
   return children;
 }
